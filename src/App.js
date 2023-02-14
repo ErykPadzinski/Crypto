@@ -4,11 +4,16 @@ import './App.css'
 import Content from "./components/content/Content";
 import ReverseContent from "./components/content/ReverseContent";
 import SignIn from "./components/signIn/SignIn";
-
+import Register from "./components/register/Register"
 
 function App() {
 
   const [loginPopup, setLoginPopup] = useState(false)
+  const [currentForm, setCurrentForm] = useState('login')
+
+  const toggleForm = (formName) => {
+    setCurrentForm(formName);
+  }
 
   return (
     <div className="App">
@@ -16,7 +21,10 @@ function App() {
       <div className="logo">
       <img src="images/logo-white.png" alt="logo" srcset="" />
     </div>
-      <SignIn trigger={loginPopup} setTrigger={setLoginPopup} />
+    {
+      currentForm === 'login' ? <SignIn onFormSwitch={toggleForm} trigger={loginPopup} setTrigger={setLoginPopup} /> : <Register onFormSwitch={toggleForm} trigger={loginPopup} setTrigger={setLoginPopup} />
+    }
+      
 
     
 

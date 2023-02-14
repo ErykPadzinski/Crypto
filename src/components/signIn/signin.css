@@ -159,3 +159,15 @@ button {
   transform: rotate(45deg) translateY(-1.3rem) translateX(-.1rem
   );
 }
+
+.login-link {
+  font-size: .9em;
+  color: #fff;
+  margin: 20px 0 40px;
+}
+
+.login-link p a{
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
