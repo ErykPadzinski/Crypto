@@ -1,13 +1,23 @@
 import React from "react";
 import { useState } from "react";
 import './signin.css'
+import axios from "axios";
 export default function SignIn(props) {
-    const [email, setEmail] = useState('')
-    const [pass, setPass] = useState('')
+    const [email, setEmailLog] = useState('')
+    const [password, setPasswordLog] = useState('')
+
+    const sendLogin = () => {
+
+      axios.post('http://localhost:3001/login', {
+        password: password,
+        email: email,
+      }).then((response) => {
+        console.log(response)
+      })
+    }
 
   const handleSubmit = (e) => {
       e.preventDefault();
-      console.log(email);
       
   }
 
@@ -21,12 +31,12 @@ export default function SignIn(props) {
           <h2>Login</h2>
           <div className="inputbox">
           <ion-icon name="mail-outline"></ion-icon>
-            <input value={email} onChange={(e) => {setEmail(e.target.value)}} type="email" required/>
+            <input value={email} onChange={(e) => {setEmailLog(e.target.value)}} type="email" required/>
             <label htmlFor="">Email</label>
           </div>
           <div className="inputbox">
           <ion-icon name="lock-closed-outline"></ion-icon>
-            <input value={pass} onChange={(e) => {setPass(e.target.value)}} type="password" required/>
+            <input value={password} onChange={(e) => {setPasswordLog(e.target.value)}} type="password" required/>
             <label htmlFor="">Password</label>
           </div>
           <div className="forget">
@@ -37,7 +47,7 @@ export default function SignIn(props) {
           <span></span>
           <span></span>
           </div>
-          <button type="submit">Log In</button>
+          <button onClick ={sendLogin} type="submit">Log In</button>
           <div className="register">
           <p onClick={() => props.onFormSwitch('register')}>Don't have a account <a href="www.google.pl">Register</a></p>
 

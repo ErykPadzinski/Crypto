@@ -1,15 +1,26 @@
 import React from "react";
 import { useState } from "react";
+import axios from "axios";
 
 export default function Register(props) {
-
+  
   const [email, setEmail] = useState('')
-    const [pass, setPass] = useState('')
-    const [name, setName] = useState('')
+  const [pass, setPass] = useState('')
+  const [name, setName] = useState('')
 
+  const sendRegister = () => {
+
+    axios.post('http://localhost:3001/register', {
+      fullName: name,
+      password: pass,
+      email: email,
+    }).then((response) => {
+      
+    })
+  }
+  
     const handleSubmit = (e) => {
       e.preventDefault();
-      console.log(email);
       
   }
   return (props.trigger) ? (
@@ -40,7 +51,7 @@ export default function Register(props) {
           <span></span>
           <span></span>
           </div>
-          <button type="submit">Register</button>
+          <button onClick={sendRegister} type="submit">Register</button>
           <div className="login-link">
           <p onClick={() => props.onFormSwitch('login')}>Already have a account? <a href="www.google.pl">Login here</a></p>
 
