@@ -32,7 +32,6 @@ app.post('/register', (req, res) => {
 app.post('/login', (req, res) => {
   const password = req.body.password;
   const email = req.body.email;
-  console.log("hello")
 
   
   db.query
@@ -52,9 +51,6 @@ app.post('/login', (req, res) => {
     
     }
   );
-  console.log(res)
-  console.log(req)
-
   
 })
 

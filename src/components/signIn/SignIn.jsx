@@ -2,9 +2,12 @@ import React from "react";
 import { useState } from "react";
 import './signin.css'
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 export default function SignIn(props) {
     const [email, setEmailLog] = useState('')
     const [password, setPasswordLog] = useState('')
+    let navigate = useNavigate();
 
     const sendLogin = () => {
 
@@ -13,6 +16,9 @@ export default function SignIn(props) {
         email: email,
       }).then((response) => {
         console.log(response)
+        navigate("/profile")
+        
+        
       })
     }
 
