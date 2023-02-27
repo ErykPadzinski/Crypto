@@ -29,9 +29,10 @@ app.post('/register', (req, res) => {
   );
 });
 
-app.post('/login', (req, res) => {
+app.post('/profile', (req, res) => {
   const password = req.body.password;
   const email = req.body.email;
+  const username = req.body.fullName;
 
   
   db.query
@@ -45,6 +46,7 @@ app.post('/login', (req, res) => {
     
    if (result.length > 0) {
         res.send(result);
+        res.send(username)
    } else {
         res.send({message: "Wrong email or password"});
    }

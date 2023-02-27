@@ -9,17 +9,23 @@ export default function SignIn(props) {
     const [password, setPasswordLog] = useState('')
     const [loginStatus, setLoginStatus] = useState('');
     let navigate = useNavigate();
+    
 
     const sendLogin = () => {
-
-      axios.post('http://localhost:3001/login', {
+        
+      axios.post('http://localhost:3001/profile', {
         password: password,
         email: email,
+        
+
       }).then((response) => {
         if (response.data.message) {
           setLoginStatus(response.data.message)
         } else {
-          navigate("/profile")
+          const name = response.data.map(a => a.fullName)
+          navigate("/profile", {state:{name}});
+        
+          
         }
         
         
