@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 export default function SignIn(props) {
     const [email, setEmailLog] = useState('')
     const [password, setPasswordLog] = useState('')
+    const [loginStatus, setLoginStatus] = useState('');
     let navigate = useNavigate();
 
     const sendLogin = () => {
@@ -15,8 +16,11 @@ export default function SignIn(props) {
         password: password,
         email: email,
       }).then((response) => {
-        console.log(response)
-        navigate("/profile")
+        if (response.data.message) {
+          setLoginStatus(response.data.message)
+        } else {
+          navigate("/profile")
+        }
         
         
       })
@@ -49,6 +53,10 @@ export default function SignIn(props) {
             <label htmlFor=""><input type="checkbox"/>Remember Me <a href="www.google.pl">Forget Password?</a></label>
             
           </div>
+          <div>
+            <p className="login-status">{loginStatus}</p>
+          </div>
+
           <div onClick={() => props.setTrigger(false)} className="close">
           <span></span>
           <span></span>
