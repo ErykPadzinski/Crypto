@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
+
+
+
+.userName {
+  color: aliceblue;
+  margin-right: 70px;
+  
+
+}
+
+
+
+ .user-logo {
+  position: relative;
+  width: 120px;
+  left: 1rem;
+}
+
+.user-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  padding-top: 10px;
+  align-items: center;
+}
+
+.content {
+  background-color: rgba(24, 17, 26, 0.542);
+  width: 94vw;
+  height: 45vw;
+  display: flex;
+  float: right;
+  margin-right: 1.5rem;
+  border-radius: 2rem;
+}

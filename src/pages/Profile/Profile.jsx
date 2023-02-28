@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+import "./profile.css"
 
 export default function Profile() {
   const location = useLocation();
@@ -21,6 +22,18 @@ export default function Profile() {
   console.log(data);
 
   return(
-    <h1>Working {location.state.name}</h1>
+    <div>
+      <div className="user-header">
+      <img className="user-logo" src="images/logo-white.png" alt="logo" srcset="" />
+      <p className="userName">Hello {location.state.name}</p>
+      </div>
+      <div className="content">
+        <p>Total Balance</p>
+        <p>123,456$</p>
+        <div className="coins">
+        
+        </div>
+      </div>
+    </div>
   )
 }
