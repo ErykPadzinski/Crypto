@@ -13,13 +13,13 @@ export default function Profile() {
 
   useEffect(() => {
       axios.get(url).then((response) => {
-        setData(response)
+        setData(response.data)
       }).catch((error) => {
         console.log(error);
       })
   }, [])
 
-  console.log(data);
+  console.log(data[0].id);
 
   return(
     <div>
@@ -28,10 +28,12 @@ export default function Profile() {
       <p className="userName">Hello {location.state.name}</p>
       </div>
       <div className="content">
-        <p>Total Balance</p>
-        <p>123,456$</p>
+        <div className="resume-balance">
+        <p className="total-balance">Total Balance</p>
+        <p className="balance">123,456$</p>
+        </div>
         <div className="coins">
-        
+
         </div>
       </div>
     </div>
