@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import "./profile.css"
+import CryptoView from "../../components/cryptoView/CryptoView";
 
 export default function Profile() {
   const location = useLocation();
@@ -17,10 +18,12 @@ export default function Profile() {
       }).catch((error) => {
         console.log(error);
       })
-  }, [])
+    }, [])
+    console.log(data);
 
-  console.log(data[0].id);
+    if(!data) return null
 
+  
   return(
     <div>
       <div className="user-header">
@@ -33,7 +36,7 @@ export default function Profile() {
         <p className="balance">123,456$</p>
         </div>
         <div className="coins">
-
+        <CryptoView img={data[0].image} price={data[0].current_price} name={data[0].name} symbol={data[0].symbol} percentage={data[0].price_change_percentage_24h} />
         </div>
       </div>
     </div>
