@@ -12,7 +12,7 @@ export default function CryptoView(props) {
         </div>
       </div>
         <p className="coin-price" >${props.price}</p>
-          <p>{props.percentage.toFixed(2)}%</p>
+          <p className="percentage" >{props.percentage.toFixed(2)}%</p>      
     </div>
   )
 }

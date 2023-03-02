@@ -11,7 +11,7 @@
   color: aliceblue;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
 
 }
 
@@ -46,4 +46,18 @@
 
 .coin-symbol {
   color: rgb(221, 207, 207);
+}
+
+.percentage {
+  font-size: 1.2rem;
+  background-color: rgb(118, 249, 136);
+  width: 5rem;
+  height: 2rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: .3rem;
+  margin-left: 2.5rem;
+  
 }
